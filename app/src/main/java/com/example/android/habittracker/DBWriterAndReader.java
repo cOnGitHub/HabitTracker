@@ -18,7 +18,7 @@ public final class DBWriterAndReader {
 
     }
 
-    public static void insertPet(Context context) {
+    public static void insertHabit(Context context) {
 
         // Database helper
         HabitsDbHelper mDbHelper = new HabitsDbHelper(context);
