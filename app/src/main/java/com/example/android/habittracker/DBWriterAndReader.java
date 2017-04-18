@@ -42,22 +42,22 @@ public final class DBWriterAndReader {
 
         // Create a new map of values, where column names are the keys
         ContentValues valuesSet2 = new ContentValues();
-        values.put(HabitsEntry.COLUMN_HABIT_NAME, "Smoking");
-        values.put(HabitsEntry.COLUMN_HABIT_DESCRIPTION, "Smoking cigarettes over the day");
-        values.put(HabitsEntry.COLUMN_HABIT_FREQUENCY, HabitsEntry.FREQUENCY_DAILY);
-        values.put(HabitsEntry.COLUMN_HABIT_ESTEEM, HabitsEntry.ESTEEM_HIGH);
-        values.put(HabitsEntry.COLUMN_HABIT_IS_HEALTHY, HabitsEntry.IS_NOT_HEALTHY);
+        valuesSet2.put(HabitsEntry.COLUMN_HABIT_NAME, "Smoking");
+        valuesSet2.put(HabitsEntry.COLUMN_HABIT_DESCRIPTION, "Smoking cigarettes over the day");
+        valuesSet2.put(HabitsEntry.COLUMN_HABIT_FREQUENCY, HabitsEntry.FREQUENCY_DAILY);
+        valuesSet2.put(HabitsEntry.COLUMN_HABIT_ESTEEM, HabitsEntry.ESTEEM_HIGH);
+        valuesSet2.put(HabitsEntry.COLUMN_HABIT_IS_HEALTHY, HabitsEntry.IS_NOT_HEALTHY);
 
         // Insert the new row,returning primary kay value of the new row
         long newRowIdSet2 = db.insert(HabitsEntry.TABLE_NAME, null, valuesSet2);
 
         // Create a new map of values, where column names are the keys
         ContentValues valuesSet3 = new ContentValues();
-        values.put(HabitsEntry.COLUMN_HABIT_NAME, "Drinking wine");
-        values.put(HabitsEntry.COLUMN_HABIT_DESCRIPTION, "Drinking one glass wine in the evening");
-        values.put(HabitsEntry.COLUMN_HABIT_FREQUENCY, HabitsEntry.FREQUENCY_DAILY);
-        values.put(HabitsEntry.COLUMN_HABIT_ESTEEM, HabitsEntry.ESTEEM_MEDIUM);
-        values.put(HabitsEntry.COLUMN_HABIT_IS_HEALTHY, HabitsEntry.IS_HEALTHY);
+        valuesSet3.put(HabitsEntry.COLUMN_HABIT_NAME, "Drinking wine");
+        valuesSet3.put(HabitsEntry.COLUMN_HABIT_DESCRIPTION, "Drinking one glass wine in the evening");
+        valuesSet3.put(HabitsEntry.COLUMN_HABIT_FREQUENCY, HabitsEntry.FREQUENCY_DAILY);
+        valuesSet3.put(HabitsEntry.COLUMN_HABIT_ESTEEM, HabitsEntry.ESTEEM_MEDIUM);
+        valuesSet3.put(HabitsEntry.COLUMN_HABIT_IS_HEALTHY, HabitsEntry.IS_HEALTHY);
 
         // Insert the new row,returning primary kay value of the new row
         long newRowIdSet3 = db.insert(HabitsEntry.TABLE_NAME, null, valuesSet3);
@@ -95,7 +95,7 @@ public final class DBWriterAndReader {
             // Display the number of rows in the Cursor (which reflects the number of rows in the
             // table in the database).
 
-            output += "Number of rows in pets database table: " + cursor.getCount() + "\n\n";
+            output += "Number of habits which are healthy ( 1 ): " + cursor.getCount() + "\n\n";
 
             output += HabitsEntry.COLUMN_HABIT_NAME + " - "
                     + HabitsEntry.COLUMN_HABIT_FREQUENCY + " - "
@@ -103,7 +103,7 @@ public final class DBWriterAndReader {
 
             int nameColumnIndex = cursor.getColumnIndex(HabitsEntry.COLUMN_HABIT_NAME);
             int frequencyColumnIndex = cursor.getColumnIndex(HabitsEntry.COLUMN_HABIT_FREQUENCY);
-            int healthyColumnIndex = cursor.getColumnIndex(HabitsEntry.COLUMN_HABIT_FREQUENCY);
+            int healthyColumnIndex = cursor.getColumnIndex(HabitsEntry.COLUMN_HABIT_IS_HEALTHY);
 
             while (cursor.moveToNext()) {
                 String currentName = cursor.getString(nameColumnIndex);
