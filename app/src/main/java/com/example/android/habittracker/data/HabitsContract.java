@@ -86,9 +86,9 @@ public final class HabitsContract {
         /**
          * Possible values for the healthyness of the habit.
          */
-        public static final int IS_HEALTHY = 0;
-        public static final int IS_NOT_HEALTHY = 1;
-        public static final int IS_NOT_RELATED_TO_HEALTH = 2;
+        public static final int IS_NOT_RELATED_TO_HEALTH = 0;
+        public static final int IS_HEALTHY = 1;
+        public static final int IS_NOT_HEALTHY = 2;
 
 
 
