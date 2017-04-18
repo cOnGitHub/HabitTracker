@@ -8,6 +8,8 @@ import com.example.android.habittracker.data.HabitsContract.HabitsEntry;
 import com.example.android.habittracker.data.HabitsDbHelper;
 
 /**
+ * Class containing methods for writing to and reading from the database.
+ *
  * Created by Christi on 18.04.2017.
  */
 
@@ -30,9 +32,9 @@ public final class DBWriterAndReader {
         ContentValues values = new ContentValues();
         values.put(HabitsEntry.COLUMN_HABIT_NAME, "Jogging");
         values.put(HabitsEntry.COLUMN_HABIT_DESCRIPTION, "Jogging through nearby nature sites");
-        values.put(HabitsEntry.COLUMN_HABIT_FREQUENCY, 2);
-        values.put(HabitsEntry.COLUMN_HABIT_ESTEEM, 3);
-        values.put(HabitsEntry.COLUMN_HABIT_IS_HEALTHY, 1);
+        values.put(HabitsEntry.COLUMN_HABIT_FREQUENCY, HabitsEntry.FREQUENCY_WEEKLY);
+        values.put(HabitsEntry.COLUMN_HABIT_ESTEEM, HabitsEntry.ESTEEM_HIGH);
+        values.put(HabitsEntry.COLUMN_HABIT_IS_HEALTHY, HabitsEntry.IS_HEALTHY);
 
         // Insert the new row,returning primary kay value of the new row
         long newRowId = db.insert(HabitsEntry.TABLE_NAME, null, values);
