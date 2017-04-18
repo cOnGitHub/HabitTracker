@@ -26,42 +26,42 @@ public final class HabitsContract {
 
         /**
          * Unique ID number for the habits within the database.
-         *
+         * <p>
          * Type: INTEGER
          */
         public static final String _ID = BaseColumns._ID;
 
         /**
          * Name of the habit.
-         *
+         * <p>
          * Type: TEXT
          */
         public static final String COLUMN_HABIT_NAME = "name";
 
         /**
          * Description of the habit.
-         *
+         * <p>
          * Type: TEXT
          */
         public static final String COLUMN_HABIT_DESCRIPTION = "description";
 
         /**
          * Frequency of the habit.
-         *
+         * <p>
          * Type: INTEGER
          */
         public static final String COLUMN_HABIT_FREQUENCY = "frequency";
 
         /**
          * Esteem against the habit.
-         *
+         * <p>
          * Type: INTEGER
          */
         public static final String COLUMN_HABIT_ESTEEM = "esteem";
 
         /**
          * Healthyness of the habit.
-         *
+         * <p>
          * Type: INTEGER
          */
         public static final String COLUMN_HABIT_IS_HEALTHY = "is_healthy";
@@ -89,8 +89,5 @@ public final class HabitsContract {
         public static final int IS_NOT_RELATED_TO_HEALTH = 0;
         public static final int IS_HEALTHY = 1;
         public static final int IS_NOT_HEALTHY = 2;
-
-
-
     }
 }

@@ -1,7 +1,8 @@
 package com.example.android.habittracker;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -10,6 +11,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        String displayText = "";
+
+        // Execute write into database
         DBWriterAndReader.insertHabit(this);
+
+        // Execute read from database
+        displayText = DBWriterAndReader.displayDatabaseInfo(this);
+
+        // Display text on view
+        TextView displayView = (TextView) findViewById(R.id.display_text_view);
+        displayView.setText(displayText);
     }
 }

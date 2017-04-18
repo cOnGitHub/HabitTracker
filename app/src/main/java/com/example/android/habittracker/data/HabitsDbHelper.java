@@ -3,12 +3,13 @@ package com.example.android.habittracker.data;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
 import com.example.android.habittracker.data.HabitsContract.HabitsEntry;
 
 /**
  * Helper class for the database of the Habit Tracker App.
  * Manages database creation, connection and versioning.
- *
+ * <p>
  * Created by Christi on 18.04.2017.
  */
 public class HabitsDbHelper extends SQLiteOpenHelper {
@@ -45,8 +46,10 @@ public class HabitsDbHelper extends SQLiteOpenHelper {
                 + HabitsEntry.COLUMN_HABIT_DESCRIPTION + " TEXT, "
                 + HabitsEntry.COLUMN_HABIT_FREQUENCY + " INTEGER NOT NULL DEFAULT 0, "
                 + HabitsEntry.COLUMN_HABIT_ESTEEM + " INTEGER, "
-                + HabitsEntry.COLUMN_HABIT_IS_HEALTHY + " INTEGER DEFAULT 0);";
+                + HabitsEntry.COLUMN_HABIT_IS_HEALTHY + " INTEGER);";
 
+        // Execute the SQL statement
+        db.execSQL(SQL_CREATE_HABITS_TABLE);
     }
 
     @Override
