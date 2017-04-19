@@ -14,10 +14,10 @@ public class MainActivity extends AppCompatActivity {
         String displayText = "";
 
         // Execute write into database
-        DBWriterAndReader.insertHabit(this);
+        DbHelperUtils.insertHabit(this);
 
         // Execute read from database
-        displayText = DBWriterAndReader.displayDatabaseInfo(this);
+        displayText = DbHelperUtils.displayDatabaseInfo(this);
 
         // Display text on view
         TextView displayView = (TextView) findViewById(R.id.display_text_view);

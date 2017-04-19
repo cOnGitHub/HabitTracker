@@ -14,10 +14,10 @@ import com.example.android.habittracker.data.HabitsDbHelper;
  * Created by Christi on 18.04.2017.
  */
 
-public final class DBWriterAndReader {
+public final class DbHelperUtils {
 
     // Private and empty constructor
-    private DBWriterAndReader() {
+    private DbHelperUtils() {
 
     }
 
