@@ -68,29 +68,9 @@ public final class DBWriterAndReader {
         // Return string to be displayed in activity_main.xml
         String output = "";
 
-        // Database helper
-        HabitsDbHelper mDbHelper = new HabitsDbHelper(context);
+        // Get cursor from read method
+        Cursor cursor = readHabits(context);
 
-        // Create and/or open a database to read from it
-        SQLiteDatabase db = mDbHelper.getReadableDatabase();
-
-        // Projection of the columns to be read off the table
-        String[] projection = {
-                HabitsEntry.COLUMN_HABIT_NAME,
-                HabitsEntry.COLUMN_HABIT_FREQUENCY,
-                HabitsEntry.COLUMN_HABIT_IS_HEALTHY};
-
-        // Selection of the SQL WHERE clause
-        String selection = HabitsEntry.COLUMN_HABIT_IS_HEALTHY + "=?";
-        String[] selectionArgs = new String[]{String.valueOf(HabitsEntry.IS_HEALTHY)};
-
-        Cursor cursor = db.query(HabitsEntry.TABLE_NAME,
-                projection,
-                selection,
-                selectionArgs,
-                null,
-                null,
-                null);
         try {
             // Display the number of rows in the Cursor (which reflects the number of rows in the
             // table in the database).
@@ -119,5 +99,36 @@ public final class DBWriterAndReader {
         }
 
         return output;
+    }
+
+    /**
+     * Method for reading data and returning it as a Cursor.
+     */
+    private static Cursor readHabits(Context context) {
+        // Database helper
+        HabitsDbHelper mDbHelper = new HabitsDbHelper(context);
+
+        // Create and/or open a database to read from it
+        SQLiteDatabase db = mDbHelper.getReadableDatabase();
+
+        // Projection of the columns to be read off the table
+        String[] projection = {
+                HabitsEntry.COLUMN_HABIT_NAME,
+                HabitsEntry.COLUMN_HABIT_FREQUENCY,
+                HabitsEntry.COLUMN_HABIT_IS_HEALTHY};
+
+        // Selection of the SQL WHERE clause
+        String selection = HabitsEntry.COLUMN_HABIT_IS_HEALTHY + "=?";
+        String[] selectionArgs = new String[]{String.valueOf(HabitsEntry.IS_HEALTHY)};
+
+        Cursor cursor = db.query(HabitsEntry.TABLE_NAME,
+                projection,
+                selection,
+                selectionArgs,
+                null,
+                null,
+                null);
+
+        return cursor;
     }
 }
